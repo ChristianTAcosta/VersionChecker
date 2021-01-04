@@ -123,7 +123,8 @@ public class GuiUpdateList extends GuiScroll
             {
                 Gui.drawModalRectWithCustomSizedTexture(maxX - 30, minY + 8, 16, 16, 16, 16, 64, 32);
 
-                info = I18n.translateToLocal(Strings.DL_AVAILABLE);
+                //info = I18n.translateToLocal(Strings.DL_AVAILABLE);
+                info = "Download Available";
             }
             else if (update.updateURL != null)
             {
@@ -152,7 +153,7 @@ public class GuiUpdateList extends GuiScroll
     @Override
     public void overlayBackground()
     {
-        this.client.renderEngine.bindTexture(Gui.optionsBackground);
+        this.client.renderEngine.bindTexture(Gui.OPTIONS_BACKGROUND);
         GL11.glColor4f(0.25F, 0.25F, 0.25F, 1.0F);
         Gui.drawModalRectWithCustomSizedTexture(left - 10, top - slotHeight, 0, 0, listWidth + 20, slotHeight, 32, 32);
         Gui.drawModalRectWithCustomSizedTexture(left - 10, top + listHeight, 0, listHeight + slotHeight, listWidth + 20, slotHeight, 32, 32);

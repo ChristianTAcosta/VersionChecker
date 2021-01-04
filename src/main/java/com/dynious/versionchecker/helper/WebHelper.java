@@ -50,7 +50,7 @@ public class WebHelper {
                 }
             } catch (Exception e)
             {
-                Logger.getGlobal().severe("Could not open URI properly, please report your browser and your OS to the Version Checker Github!");
+                //Logger.getGlobal().severe("Could not open URI properly, please report your browser and your OS to the Version Checker Github!");
             }
 
         }

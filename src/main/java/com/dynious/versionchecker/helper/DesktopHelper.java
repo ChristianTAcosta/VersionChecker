@@ -6,7 +6,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.logging.Logger;
+import org.apache.logging.log4j.Logger;
 
 public class DesktopHelper {
     public static final File MOD_FOLDER;
@@ -54,7 +54,7 @@ public class DesktopHelper {
                 }
             } catch (Exception e)
             {
-                Logger.getGlobal().severe("Could not open File Browser properly, please report your file browser and your OS to the Version Checker Github!");
+               // Logger.getGlobal().severe("Could not open File Browser properly, please report your file browser and your OS to the Version Checker Github!");
             }
         }
     }

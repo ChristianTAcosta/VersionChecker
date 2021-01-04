@@ -3,6 +3,8 @@ package com.dynious.versionchecker.handler;
 import com.dynious.versionchecker.helper.DesktopHelper;
 import com.dynious.versionchecker.helper.ModHelper;
 import com.dynious.versionchecker.lib.Reference;
+
+
 import sun.misc.URLClassPath;
 import sun.net.util.URLUtil;
 
@@ -39,6 +41,7 @@ public class RemoveHandler
         {
             ClassLoader cl = RemoveHandler.class.getClassLoader();
             URL url = file.toURI().toURL();
+            
             Field f_ucp = URLClassLoader.class.getDeclaredField("ucp");
             Field f_loaders = URLClassPath.class.getDeclaredField("loaders");
             Field f_lmap = URLClassPath.class.getDeclaredField("lmap");
@@ -53,6 +56,9 @@ public class RemoveHandler
                 loader.close();
                 ((List<?>) f_loaders.get(ucp)).remove(loader);
             }
+            
+            
+            
         }
         catch (Exception e)
         {

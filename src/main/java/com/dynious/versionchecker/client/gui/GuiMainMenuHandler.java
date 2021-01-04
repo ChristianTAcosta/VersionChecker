@@ -22,7 +22,8 @@ public class GuiMainMenuHandler
                 return;
             }
         }
-        GuiButtonUpdates button = new GuiButtonUpdates(BUTTON_ID, gui.width / 2 - 124, gui.height / 4 + 96);
+        GuiButtonUpdates button = new GuiButtonUpdates(BUTTON_ID, gui.width / 2 - 200, gui.height / 4 + 96);
+       
         buttonList.add(button);
     }
 

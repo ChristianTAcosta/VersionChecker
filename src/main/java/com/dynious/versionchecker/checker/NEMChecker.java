@@ -36,11 +36,12 @@ public class NEMChecker implements Runnable
         Scanner s = null;
         try
         {
-            URL url = new URL("http://bot.notenoughmods.com/" + getMcVersion() + ".json");
+            URL url = new URL("");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             inputStream = (InputStream) conn.getContent();
             s = new Scanner(inputStream).useDelimiter("\\A");
             String string = s.next();
+          
             NEMModInfo[] mods = gson.fromJson(string, NEMModInfo[].class);
 
             for (NEMModInfo mod : mods)
@@ -54,9 +55,9 @@ public class NEMChecker implements Runnable
                         update.displayName = container.getName();
                         update.oldVersion = mod.getActualModVersion() != null ? mod.getActualModVersion() : NEMUtils.patchVersion(mod.getVersion());
                         update.newVersion = mod.getVersion();
-                        update.changeLog = I18n.translateToLocal(Strings.NEM_UPDATE);
+                        update.changeLog = mod.getComment();
 
-                        update.isDirectLink = false;
+                        update.isDirectLink = true;
                         if (mod.getLongurl() != null && !mod.getLongurl().isEmpty())
                         {
                             update.updateURL = mod.getLongurl();

@@ -35,13 +35,16 @@ public class VersionChecker
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        MinecraftForge.EVENT_BUS.register(new EventHandler());
+    	
+        
+    	MinecraftForge.EVENT_BUS.register(new EventHandler());
 
-        FMLCommonHandler.instance().bus().register(new ConfigHandler());
-
+    	MinecraftForge.EVENT_BUS.register(new ConfigHandler());
+    
+    	RemoveHandler.init();
         ConfigHandler.init(event);
 
-        RemoveHandler.init();
+       
 
         FMLInterModComms.sendRuntimeMessage(Reference.MOD_ID, "VersionChecker", "addVersionCheck", REMOTE_VERSION_URL);
 

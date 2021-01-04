@@ -61,7 +61,7 @@ public class GuiUpdates extends GuiScreen
 
         buttonList.add(closeButton = new GuiButton(2, width / 2 + 4 + listShift, height / 2 + 40, 96, 20, I18n.translateToLocal("gui.done")));
 
-        buttonList.add(new GuiButton(3, 10, height - 30, 150, 20, I18n.translateToLocal(Strings.MOD_FOLDER)));
+        buttonList.add(new GuiButton(3, 10, height - 30, 150, 20, "Mods Folder"));
 
         buttonList.add(buttonDownloaded = new GuiButtonDownloaded(4, width / 2 - 100 + listShift, height / 2 + 15));
 
@@ -243,10 +243,11 @@ public class GuiUpdates extends GuiScreen
         changeLogList.disableInput = false;
         updateList.disableInput = true;
         buttonDownloaded.setUpdate(update);
-        Minecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.ui_button_click, 1.0F));
+       // Minecraft.getMinecraft().getSoundHandler().playSound(PositionedSoundRecord.getMasterRecord(SoundEvents.ui_button_click, 1.0F));
         if (update.isDirectLink)
         {
-            updateButton.displayString = I18n.translateToLocal(Strings.UPDATE);
+            //updateButton.displayString = I18n.translateToLocal(Strings.UPDATE);
+            updateButton.displayString = "Update";
             updateButton.enabled = update.updateURL != null && !update.isDownloaded();
         }
         else

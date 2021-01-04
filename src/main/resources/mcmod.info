@@ -1,10 +1,10 @@
 [
 {
-  "modid": "VersionChecker",
+  "modid": "versionchecker",
   "name": "Version Checker",
-  "description": "Easily find updates for your installed mods!",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
+  "description": "Updated modified version of Version Checker",
+  "version": "1.4.0",
+  "mcversion": "1.12.2",
   "url": "",
   "updateUrl": "",
   "authorList": ["Dynious"],
