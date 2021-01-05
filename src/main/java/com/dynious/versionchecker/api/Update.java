@@ -18,9 +18,11 @@ public class Update
     public String newFileName;
     public String changeLog;
     public UpdateType updateType = UpdateType.NORMAL;
-
+   
     private boolean isDownloaded;
     private boolean isErrored;
+    private boolean newmod;
+
 
     public Update(String modId)
     {
@@ -36,7 +38,17 @@ public class Update
     {
         return isErrored;
     }
+    
+    public boolean isNewMod()
+    {
+    	return newmod;
+    }
 
+    public void setNewMod()
+    {
+        this.newmod = true;
+    }
+    
     public void setDownloaded(boolean downloaded)
     {
         this.isDownloaded = downloaded;

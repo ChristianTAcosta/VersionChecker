@@ -66,6 +66,23 @@ public class NEMChecker implements Runnable
                         UpdateHandler.addUpdate(update);
                     }
                 }
+               else if(mod.isNewMod())
+                {
+                   Update update = new Update(mod.getModid());
+                   update.displayName = mod.getName();
+                   update.oldVersion = "0.0";
+                   update.newVersion = mod.getVersion();
+                   update.changeLog = mod.getComment();
+                   update.setNewMod();
+                   
+                   update.isDirectLink = true;
+                   if (mod.getLongurl() != null && !mod.getLongurl().isEmpty())
+                   {
+                       update.updateURL = mod.getLongurl();
+                   }
+                   update.updateType = Update.UpdateType.NOT_ENOUGH_MODS;
+                   UpdateHandler.addUpdate(update);
+                }
             }
         } catch (MalformedURLException e)
         {

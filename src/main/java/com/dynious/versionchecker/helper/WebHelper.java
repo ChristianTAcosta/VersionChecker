@@ -77,8 +77,9 @@ public class WebHelper {
     }
 
     public static boolean downloadUpdate(Update update) {
+
         ModContainer mod = ModHelper.getModContainer(update.MOD_ID);
-        if (mod != null && mod.getSource() != null && mod.getSource().isFile())
+        if (mod != null && mod.getSource() != null && mod.getSource().isFile() || update.isNewMod())
         {
             String fileName = "";
             if (update.newFileName != null && !update.newFileName.isEmpty())
@@ -106,7 +107,7 @@ public class WebHelper {
             try
             {
                 URL url = new URL(update.updateURL);
-                File file = downloadFileFromURL(url, update, mod, fileName);
+                File file = downloadFileFromURL(url, update, fileName);
                 if (file != null && file.exists() && file.length() > 0)
                 {
                     return true;
@@ -118,8 +119,31 @@ public class WebHelper {
         }
         return false;
     }
+    
+    public static boolean downloadNew(Update update) {
 
-    public static File downloadFileFromURL(URL url, Update update, ModContainer mod, String fileName) throws IOException {
+            String fileName = "";
+          
+            try
+            {
+            	//get path to save file
+            	fileName = String.format("%s\\%s", DesktopHelper.MOD_FOLDER.getAbsolutePath(),update.updateURL.substring(update.updateURL.lastIndexOf("/")+1));
+                
+            	URL url = new URL(update.updateURL);
+                File file = downloadFileFromURL(url, update, fileName);
+                if (file != null && file.exists() && file.length() > 0)
+                {
+                    return true;
+                }
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+    
+        return false;
+    }
+
+    public static File downloadFileFromURL(URL url, Update update, String fileName) throws IOException {
         File newFile = new File(fileName);
         FileUtils.copyURLToFile(url, newFile);
         return newFile;

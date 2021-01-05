@@ -86,11 +86,16 @@ public class GuiUpdates extends GuiScreen
     {
         updateList.drawScreen(mouseX, mouseY, par3);
 
+        
+        
         if (openUpdate != null)
         {
             changeLogList.drawScreen(mouseX, mouseY, par3);
         }
-
+        
+        
+ 
+        
         this.fontRenderer.drawSplitString(I18n.translateToLocal(Strings.INFO).replace(";", "\n"), 10, height / 2 - 60, width / 2 - 150 + listShift - 20, 0xCCCCCC);
 
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
@@ -119,6 +124,9 @@ public class GuiUpdates extends GuiScreen
         drawToolTip(mouseX, mouseY);
         if (tempDisableButtonPress > 0)
             tempDisableButtonPress--;
+        
+        
+        
     }
 
     public void updateList()

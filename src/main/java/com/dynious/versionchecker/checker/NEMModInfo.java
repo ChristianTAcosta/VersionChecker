@@ -14,6 +14,7 @@ public class NEMModInfo
     private String modid;
     private String dev;
     private String actualModVersion;
+    private String newmod;
 
     public boolean isUpToDate(String modVersion, String displayVersion)
     {
@@ -120,4 +121,12 @@ public class NEMModInfo
     {
         return actualModVersion;
     }
+
+	public boolean isNewMod() {
+		
+		if(newmod.contains("true"))
+			return true;
+		
+		return false;
+	}
 }

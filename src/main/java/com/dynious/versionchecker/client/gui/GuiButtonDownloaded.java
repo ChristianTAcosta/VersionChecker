@@ -28,13 +28,19 @@ public class GuiButtonDownloaded extends GuiButton
     public void setUpdate(Update update)
     {
         this.visible = update != null && !update.isDirectLink;
-        ticked = update != null && RemoveHandler.filesToDelete.contains( ModHelper.getModContainer(update.MOD_ID).getSource());
+       // ticked = update != null && RemoveHandler.filesToDelete.contains( ModHelper.getModContainer(update.MOD_ID).getSource());
+        ticked = false;
         this.update = update;
     }
+    
+
 
     public void onButtonClicked()
     {
         ticked = !ticked;
+       
+        if(!update.isNewMod())
+        {
         File file = ModHelper.getModContainer(update.MOD_ID).getSource();
         if (ticked)
         {
@@ -44,6 +50,7 @@ public class GuiButtonDownloaded extends GuiButton
         {
             RemoveHandler.filesToDelete.remove(file);
         }
+       }
         update.setDownloaded(ticked);
     }
 
